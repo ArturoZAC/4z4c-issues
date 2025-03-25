@@ -1,15 +1,25 @@
 import { useQuery } from "@tanstack/react-query";
 import { getLabels } from "../actions";
+// import { GithubLabel } from "../interfaces";
 
 export const useLabels = () => {
-
   const labelsQuery = useQuery({
-    queryKey: ['labels'],
+    queryKey: ["labels"],
     queryFn: getLabels,
-    staleTime: 1000 * 60 * 60
+    staleTime: 1000 * 60 * 60,
+    // placeholderData: [
+    //   {
+    //     id: 196858374,
+    //     node_id: "MDU6TGFiZWwxOTY4NTgzNzQ=",
+    //     url: "https://api.github.com/repos/facebook/react/labels/CLA%20Signed",
+    //     name: "CLA Signed",
+    //     color: "e7e7e7",
+    //     default: false,
+    //   } satisfies GithubLabel,
+    // ],
   });
 
   return {
-    labelsQuery
-  }
+    labelsQuery,
+  };
 };
