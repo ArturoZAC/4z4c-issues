@@ -5,15 +5,15 @@ import { LabelPicker } from '../components/LabelPicker';
 
 export const ListView = () => {
 
-  const { issueQuery } = useIssues();
+  const { issuesQuery } = useIssues();
 
-  const issues = issueQuery.data ?? [];
+  const issues = issuesQuery.data ?? [];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 mt-5">
       <div className="col-span-1 sm:col-span-2">
         {
-          issueQuery.isLoading
+          issuesQuery.isLoading
             ? <LoadingSpinner />
             : <IssueList issues={issues} />
         }

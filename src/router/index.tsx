@@ -9,7 +9,7 @@ export const router = createBrowserRouter([
     element: <GitApp />,
     children: [
       { path: 'list', element: <ListView /> },
-      { path: 'issue/:id', element: <IssueView /> },
+      { path: 'issue/:issueNumber', element: <IssueView /> },
       { path: '*', element: <Navigate to="list" /> },
     ],
   },
@@ -22,10 +22,10 @@ export const router = createBrowserRouter([
     element: <h1>Not found</h1>,
   },
 ],
-{
-  future: {
-    // v7_startTransition: true,
-    v7_relativeSplatPath: true
+  {
+    future: {
+      // v7_startTransition: true,
+      v7_relativeSplatPath: true
+    }
   }
-}
 );
