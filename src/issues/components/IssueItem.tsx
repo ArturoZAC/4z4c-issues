@@ -4,6 +4,7 @@ import { GitHubIssue, State } from '../../interfaces';
 import { FC } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { getIssue, getIssueComments } from '../../actions';
+import { timeSince } from '../../helpers';
 
 interface Props {
   issue: GitHubIssue;
@@ -54,7 +55,7 @@ export const IssueItem: FC<Props> = ({ issue }) => {
           {issue.title}
         </a>
         <span className="text-gray-500">
-          #${issue.number} opened 2 days ago by{' '}
+          #${issue.number} opened {timeSince(issue.created_at)} days ago by{' '}
           <span className="font-bold">{issue.user.login}</span>
         </span>
 
